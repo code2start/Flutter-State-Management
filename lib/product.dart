@@ -1,4 +1,5 @@
 class Product {
+  //attributes
   String name;
   int price;
   bool isCheck;
