@@ -6,7 +6,8 @@ import 'package:state_management/counter_event.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    CounterBloc counterBloc = BlocProvider.of<CounterBloc>(context);
+    CounterBloc cB = BlocProvider.of<CounterBloc>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Bloc Counter App'),
@@ -18,7 +19,7 @@ class Home extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.remove),
               onPressed: () {
-                counterBloc.add(CounterEvent.remove);
+                cB.add(CounterEvent.remove);
               },
             ),
             BlocBuilder<CounterBloc, int>(
@@ -29,7 +30,7 @@ class Home extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.add),
               onPressed: () {
-                counterBloc.add(CounterEvent.add);
+                cB.add(CounterEvent.add);
               },
             ),
           ],
