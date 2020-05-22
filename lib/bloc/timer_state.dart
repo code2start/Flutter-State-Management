@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-abstract class TimerState extends Equatable {
+class TimerState extends Equatable {
   final int duration;
   const TimerState(this.duration);
 
@@ -21,5 +21,5 @@ class Running extends TimerState {
 }
 
 class Finished extends TimerState {
-  const Finished(int duration) : super(0);
+  const Finished() : super(0);
 }
