@@ -9,8 +9,7 @@ import 'package:state_management/ticker.dart';
 class TimerBloc extends Bloc<TimerEvent, TimerState> {
   final int _duration = 60;
   final Ticker _ticker;
-  StreamSubscription _tickerSubscription;
-
+  StreamSubscription<int> _tickerSubscription;
   TimerBloc({@required Ticker ticker}) : _ticker = ticker;
 
   @override
@@ -28,7 +27,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
       });
     } else if (event is Pause) {
       if (state is Running) {
-        _tickerSubscription?.pause();
+        _tickerSubscription.pause();
         yield Paused(state.duration);
       }
     } else if (event is Resume) {
