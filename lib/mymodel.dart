@@ -1,12 +1,15 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/cupertino.dart';
 
 class MyModel with ChangeNotifier {
-  String name;
-  int number;
-  MyModel(this.name, this.number);
-
+  int number = 0;
+  String name = 'Mohamed Fathy';
   inc() {
     number++;
+    notifyListeners();
+  }
+
+  changeName() {
+    name = "Ahmed Mohamed";
     notifyListeners();
   }
 }
